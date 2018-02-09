@@ -79,20 +79,14 @@ function lengthOfArrays(a, b) {
 console.log(lengthOfArrays(a, b));
 
 var e = 3;
-var a = [5, -4.2, 3, 7];
+var a = [5, -4.2, 8, 3];
 
 function Something(e, a) {
-    var i;
-    for (i = 0; i < a.length;) {
-        if (a[i] == e) {
-            return 'true';
+    for (i=0;i<a.length;i++){
+        if(a[i]==e){
+            return true;
         }
-        else {
-            i++;
-            
-        }
-    
-        
     }
+return false;
 }
 console.log(Something(e,a));
