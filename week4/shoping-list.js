@@ -11,9 +11,7 @@
         this.name = name;
         this.price = price;
         this.expirationDate = expirationDate;
-
-
-        this.getInfo = function () {
+            this.getInfo = function () {
             var productCode;
             productCode = this.name[0] + this.name[this.name.length - 1] + ", " + this.id + ", " + this.expirationDate;
             return productCode;
