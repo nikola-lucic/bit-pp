@@ -14,31 +14,60 @@
     function Movie(title, genre, length) {
         this.title = title;
         this.genre = genre.getData();
-        this.movieLength = length;
+        this.length = length;
         this.getData = function () {
             var movieString = this.title + ' ' + this.movieLength + ' ' + this.genre;
             return movieString;
         };
     };
 
-    function Program(date, listOfMovies, TotalNumberOfMovies) {
+    function Program(date) {
         this.date = date;
         this.listOfMovies = [];
-        this.totalNumberOfMovies = totalNumberOfMovies;
+        this.totalNumberOfMovies = function () {
+            return this.listOfMovies.length;
+        };
+        this.addMovie = function (movie) {
+            this.listOfMovies.push(movie);
+        };
+        this.sumOfMovieLength = function () {
+            var sum = 0;
+            for (var i = 0; i < this.listOfMovies.length; i++) {
+                sum += this.listOfMovies[i].length;
+            }
+            return sum;
+        };
+        this.getData = function () {
+            var programData = "";
+            for (var i = 0; i < this.listOfMovies.length; i++) {
+                programData += this.listOfMovies[i].getData();
+
+            }
+            return programData;
+        };
+
     };
 
-    function Festival(name, /*ListOfPrograms,*/numberOfMoviesInAllPrograms) {
+    function Festival(name) {
         this.name = name;
         this.listOfPrograms = [];
-        this.numberOfMoviesInAllPrograms = numberOfMoviesInAllPrograms;
+        this.listOfMoviesInPrograms = 0;
     };
 
     //lenght of movie
 
     var genreName = new Genre("Science Fiction");
-    var movieName = new Movie("I Robot", genreName, '1:30');
-    movieName = movieName.getData();
-    console.log(movieName); //vraca getData u stringu
+    var robot = new Movie("I Robot", genreName, '130');
+    //movieName = movieName.getData();
+    //console.log(movieName); //vraca getData u stringu
+
+    var movieProgram = new Program('3. 11.2018');
+    movieProgram.addMovie(robot);
+    movieProgram.totalNumberOfMovies();
+
+    var festivalName = new Festival('Fest');
+    console.log(movieProgram);
+
 
 
 
