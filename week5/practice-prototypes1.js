@@ -51,11 +51,7 @@ managers.prototype.changeDepartment = function (department) {
     this.department = department;
 }
 
-var manager1 = new managers('Laza', 'Lazic', 'HR', 1000);
-var manager2 = new managers('Sale', 'Salic', 'HR', 1200);
 
-manager1.changeDepartment('analytics');
-manager1.getDepartment();
 
 var sharedMethods = {
     getData: function () {
@@ -69,8 +65,25 @@ var sharedMethods = {
     }
 };
 
+var manager1 = new managers('Laza', 'Lazic', 'HR', 1000);
+var manager2 = new managers('Sale', 'Salic', 'HR', 1200);
+
+managers.prototype.__proto__ = sharedMethods;
+manager1.changeDepartment('analytics');
+manager1.getDepartment();
+
+manager2.changeDepartment('analytics');
+manager2.getDepartment();
+
+
 employees.prototype.__proto__ = sharedMethods;
-employee1.increaseSalary();
+employee1.getData();
 employee1.getSalary();
+employee1.increaseSalary();
+
+employee2.getData();
+employee2.getSalary();
+employee2.increaseSalary();
+
 
 
