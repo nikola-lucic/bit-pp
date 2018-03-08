@@ -9,7 +9,7 @@
 function upCase(...arg) {
     var newArr = [];
 
-    arg.forEach(function (e, i) {
+    arg.forEach(function(e, i) {
         newArr.push(e.replace(e[0], e[0].toUpperCase()));
     })
 
@@ -28,6 +28,7 @@ Use a constant to set a fixed value of the tax rate (i.e. 20% in Serbia).
 
 const tax = 20;
 let productPrice = 120;
+
 function calculateTax(tax, productPrice) {
     let pdv = productPrice / 100 * tax
     return pdv;
@@ -44,9 +45,10 @@ increase each element of the array by 1.
 */
 
 let someArray = [2, 3, 5, 6, 7]
+
 function increaseArr(someArray, value = 1) {
     let newArray = [];
-    someArray.forEach(function (e, i) {
+    someArray.forEach(function(e, i) {
         let newValue = e + value;
         newArray.push(newValue);
     })
@@ -55,15 +57,17 @@ function increaseArr(someArray, value = 1) {
 };
 console.log(increaseArr(someArray));
 
-// Write a function that filters all even elements of the array.
-//     Input: [6, 11, 9, 0, 3]
-//     Output: [6, 0]
-
+/*
+ 4.Write a function that filters all even elements of the array.
+     Input: [6, 11, 9, 0, 3]
+     Output: [6, 0]
+*/
 
 let someArray = [3, 5, 62, 2, 3, 6, 8];
+
 function filterEven(someArray) {
     let newArray = [];
-    someArray.forEach(function (e) {
+    someArray.forEach(function(e) {
         if (e % 2 == 0) {
             newArray.push(e);
         }
@@ -75,14 +79,15 @@ function filterEven(someArray) {
 };
 console.log(filterEven(someArray));
 
-
-// Write a function that filters all the strings from the given array that contain substring JS or js.
-//     Input: ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
-//     Output: ['babel.js, 'JS standard']
-
+/*
+5. Write a function that filters all the strings from the given array that contain substring JS or js.
+    Input: ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
+  Output: ['babel.js, 'JS standard']
+*/
 let someArray = ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
+
 function filterJS(someArray) {
-    let result = someArray.filter(function (e) {
+    let result = someArray.filter(function(e) {
 
         return e.includes("JS") || e.includes('js');
 
@@ -100,11 +105,16 @@ Input: [1.6, 11.34, 9.23, 7, 3.11, 8]
 */
 
 let someArray = [1.6, 11.34, 9.23, 7, 3.11, 8];
-function filterArr (someArray){
-    let result = [];
-    someArray.forEach(function (e){
-         result = Number.isInteger();
-    })
-    return result;
-}
-console.log(filterArr(someArray));
+
+let result = someArray.filter(number => number % 1 === 0);
+console.log(result);
+/*
+7.Write a function that filters all integer arguments that contain digit 5.
+    Function arguments: 23, 11.5, 9, 'abc', 45, 28, 553 
+    Output: [45, 553]
+*/
+let someArray = [23, 11.5, 9, 'abc', 45, 28, 553];
+
+let result = someArray.includes('5')
+
+console.log(result);

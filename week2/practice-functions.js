@@ -80,7 +80,8 @@ function firstTime(str, n) {
         if (currentCharacter === n) {
             return i + 1;
         }
-    } return -1
+    }
+    return -1
 }
 console.log(firstTime("My random string", 'n'));
 
@@ -96,7 +97,8 @@ function firstTime(str, n) {
         if (currentCharacter === n) {
             return i + 1;
         }
-    } return -1
+    }
+    return -1
 }
 console.log(firstTime("My random string", 'n'));
 
@@ -122,3 +124,30 @@ function stringIntoArray(str) {
 
 var output = stringIntoArray("This is simple string");
 console.log(output);
+
+/*
+8. Write a function that accepts a number as a parameter and check if the number is prime or not. 
+Note: A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+    7 -> true
+
+*/
+
+function primeNumber(n) {
+    if (n % 2 === 0) {
+        return true;
+    }
+    return false;
+}
+
+console.log(primeNumber(42));
+
+/*
+9. Write a function that replaces spaces in a string with provided separator. If separator is not provided, use “-” 
+(dash) as the default separator.
+
+    "My random string", "_" -> "My_random_string"
+    "My random string", "+" -> "My+random+string"
+    "My random string" -> "My-random-string"
+
+*/
