@@ -9,7 +9,7 @@
 function upCase(...arg) {
     var newArr = [];
 
-    arg.forEach(function(e, i) {
+    arg.forEach(function (e, i) {
         newArr.push(e.replace(e[0], e[0].toUpperCase()));
     })
 
@@ -48,7 +48,7 @@ let someArray = [2, 3, 5, 6, 7]
 
 function increaseArr(someArray, value = 1) {
     let newArray = [];
-    someArray.forEach(function(e, i) {
+    someArray.forEach(function (e, i) {
         let newValue = e + value;
         newArray.push(newValue);
     })
@@ -67,7 +67,7 @@ let someArray = [3, 5, 62, 2, 3, 6, 8];
 
 function filterEven(someArray) {
     let newArray = [];
-    someArray.forEach(function(e) {
+    someArray.forEach(function (e) {
         if (e % 2 == 0) {
             newArray.push(e);
         }
@@ -87,7 +87,7 @@ console.log(filterEven(someArray));
 let someArray = ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
 
 function filterJS(someArray) {
-    let result = someArray.filter(function(e) {
+    let result = someArray.filter(function (e) {
 
         return e.includes("JS") || e.includes('js');
 
@@ -105,16 +105,25 @@ Input: [1.6, 11.34, 9.23, 7, 3.11, 8]
 */
 
 let someArray = [1.6, 11.34, 9.23, 7, 3.11, 8];
-
-let result = someArray.filter(number => number % 1 === 0);
-console.log(result);
+var number = [];
+someArray.forEach(function (e) {
+    if (e % 1 === 0) {
+        number.push(e);
+    }
+})
+console.log(number);
 /*
 7.Write a function that filters all integer arguments that contain digit 5.
     Function arguments: 23, 11.5, 9, 'abc', 45, 28, 553 
     Output: [45, 553]
 */
 let someArray = [23, 11.5, 9, 'abc', 45, 28, 553];
+let z = [];
+someArray.forEach(function (e) {
+    return z.push(e+'');
+})
+let newArray = z.filter(function(e) {
+    return e.includes('5');
+});
 
-let result = someArray.includes('5')
-
-console.log(result);
+console.log(newArray);
