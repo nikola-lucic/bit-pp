@@ -1,4 +1,3 @@
-
 /*
 
 data model
@@ -84,12 +83,12 @@ let showEndDate = new Data();
 
 let nameOfCast = [];
 */
-let main = (function (dataModule, uiModule) {
+let mainModule = (function (dataModule, uiModule) {
     //init
     let init = function () {
 
-        let tvMazeApi = 'http://api.tvmaze.com/shows';
-        var request = $.ajax({
+        let tvMazeApi = `http://api.tvmaze.com/shows`;
+        let request = $.ajax({
             url: 'http://api.tvmaze.com/shows',
             method: "GET",
         });
@@ -103,14 +102,25 @@ let main = (function (dataModule, uiModule) {
             alert("Request failed: " + textStatus);
         });
 
+        $('img').on('click', function () {
+
+            let request = $.ajax({
+                url: `http://api.tvmaze.com/${show.id}shows`,
+                method: "GET",
+            });
+            request.done(function (response) {
+
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        })
     }
+
+
     return {
-        init: init
+        init,
+        //initSinglePage
     }
-
-
-
-
 })(dataModule, uiModule);
-main.init()
-
