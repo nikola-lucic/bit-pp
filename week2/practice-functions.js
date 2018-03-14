@@ -151,3 +151,139 @@ console.log(primeNumber(42));
     "My random string" -> "My-random-string"
 
 */
+
+function replaceSpace(string, sep) {
+    var output = "";
+    sep = sep || "-";
+    for (var index = 0; index < string.length; index++) {
+        var element = string[index];
+        if (element === " ") {
+            output += sep;
+        } else {
+            output += element;
+        }
+    }
+
+    return output;
+}
+
+var result = replaceSpace("Random string with space", "%");
+console.log(result);
+
+/*
+10. Write a function to get the first n characters and add “...” at the end of newly created string.
+"This is long string", 7 -> "This is..."
+*/
+
+function stringChop(input, size) {
+    var output = "";
+
+    for (var index = 0; index < input.length; index++) {
+        output += input[index];;
+        if (index === (size - 1)) {
+            output += "...";
+            return output;
+        }
+    }
+
+
+}
+
+var result = stringChop("This is long string", 7);
+console.log(result);
+
+/*
+ 11.Write a function that converts an array of strings into an array of numbers. Filter out all non-numeric values.
+["1", "21", undefined, "42", "1e+3", Infinity] -> [1, 21, 42, 1000]
+ */
+
+function filterNonNumbers(inputArray) {
+    var numArray = [];
+    var positionFixer = 0;
+
+    for (var index = 0; index < inputArray.length; index++) {
+        var element = inputArray[index];
+        var number = parseFloat(element);
+
+        if (!isNaN(number) && isFinite(number)) {
+            numArray[index - positionFixer] = number;
+        } else {
+            positionFixer++;
+        }
+    }
+
+    return numArray;
+}
+
+var output = filterNonNumbers(["1", "21", undefined, "42", "1e+3", Infinity]);
+console.log(output);
+
+/*
+12.Write a function to calculate how many years there are left until retirement based on the year of birth. 
+Retirement for men is at age of 65 and for women at age of 60. 
+If someone is already retired, a proper message should be displayed.
+*/
+
+function calculateAge(yearOfBirth) {
+    var age = (2017 - yearOfBirth);
+    return age;
+}
+
+function isInReitrement(age, gender) {
+    gender = gender || "m"
+
+    if (gender === "m") {
+        return age >= 65;
+    } else if (gender === "f") {
+        return age >= 60;
+    }
+}
+
+function untilRetirement(yearOfBirth, gender) {
+    var age = calculateAge(yearOfBirth);
+    var gender = gender || "m";
+
+    if (isInReitrement(age, gender)) {
+        return "Person is already in retirement"
+    }
+
+    if (gender === "m") {
+        return 65 - age;
+    } else {
+        return 60 - age;
+    }
+}
+
+var output = untilRetirement(1939, "f")
+console.log(output);
+
+/*
+13.
+ Write a function to humanize a number (formats a number to a human-readable string) with the correct suffix such as 1st, 2nd, 3rd or 4th.
+*/
+function humanizeNumber(num) {
+    if (typeof num == "undefined") {
+        return;
+    }
+
+    if (num % 100 >= 11 && num % 100 <= 13) {
+        return num + "th";
+    }
+
+    switch (num % 10) {
+        case 1:
+            return num + "st";
+        case 2:
+            return num + "nd";
+        case 3:
+            return num + "rd";
+    }
+    return num + "th";
+}
+
+// Output
+console.log(humanizeNumber());
+console.log(humanizeNumber(1));
+console.log(humanizeNumber(8));
+console.log(humanizeNumber(301));
+console.log(humanizeNumber(402));
