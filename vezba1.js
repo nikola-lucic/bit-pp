@@ -227,19 +227,6 @@ Output: 5 days
 */
 
 
-//Set current year or the next year if you already had birthday this year
-var myBirthday, today, bday, diff, days;
-myBirthday = [25, 2]; // 6th of February
-today = new Date();
-bday = new Date(today.getFullYear(), myBirthday[1] - 1, myBirthday[0]);
-if (today.getTime() > bday.getTime()) {
-    bday.setFullYear(bday.getFullYear() + 1);
-}
-diff = bday.getTime() - today.getTime();
-days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-console.log(days + " days until Niet's birthday!");
-
 
 /*
 Write a function that for a given departure and arrival time calculates the time the trip takes.
@@ -247,8 +234,6 @@ Write a function that for a given departure and arrival time calculates the time
 Output: 3 hours 21 minutes 9 seconds
 */
 
-var startTime = new Date().getTime();
-console.log(startTime)
 
 /*
 Write a constructor function that creates points in space.Each point in space has its own x, y, and z coordinate.For example, (3, 5, 1) can be a point in space.
@@ -277,8 +262,30 @@ const distance = ({ x1, y1, z1 }, { x2, y2, z2 }) => {
 
 console.log(distance(position1, position2))
 
-Write a function that calculates the distance between two points in the space.
 
+/*
+Write a function that calculates the distance between two points in the space.
+*/
+
+function Position1(x) {
+    this.x1 = x
+
+}
+const position1 = new Position1(2)
+
+function Position2(x) {
+    this.x2 = x
+
+}
+
+const position2 = new Position2(6)
+
+const distance = ({ x1 }, { x2 }) => {
+    let distance = Math.sqrt(Math.pow((x2 - x1), 2));
+    return distance;
+}
+
+console.log(distance(position1, position2))
 
 /*
 Write a function that generates a random integer value between 5 and 20.
@@ -329,7 +336,7 @@ Output: [6, 2, 9, 1, 3, 11](it can be any random permutation of the given array)
 */
 
 const shuffle = (array) => {
-    for (let i = a.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
@@ -339,3 +346,32 @@ const shuffle = (array) => {
 var array = [3, 6, 11, 2, 9, 1]
 
 console.log(shuffle(array))
+
+/*Write X 
+
+*   *
+ * *
+  *
+ * *
+*   *
+
+*/
+
+var size = 7;
+var space = " ";
+for (var i = 0; i < size; i++) {
+    var leadSpaceCount = i < size / 2 ? i : size - i - 1;
+    var spaceBetweenCount = size - 2 - (2 * leadSpaceCount)
+
+    //    console.log(spaceBetweenCount);
+
+    if (spaceBetweenCount > -1) {
+        console.log(space.repeat(leadSpaceCount) + '*'
+            + space.repeat(spaceBetweenCount) +
+            '*' + space.repeat(leadSpaceCount));
+    }
+    else {
+        console.log(space.repeat(leadSpaceCount) + '*'
+            + space.repeat(leadSpaceCount));
+    }
+}
