@@ -226,7 +226,10 @@ Write a function that calculates a number of days to your birthday.
 Output: 5 days
 */
 
-
+const birthday = new Date('2018-04-09').getTime()
+const currentTime = new Date()
+const result = parseInt(((birthday - currentTime) / (1000 * 60 * 60 * 24)))
+console.log(result);
 
 /*
 Write a function that for a given departure and arrival time calculates the time the trip takes.
@@ -357,7 +360,7 @@ console.log(shuffle(array))
 
 */
 
-var size = 7;
+var size = 6;
 var space = " ";
 for (var i = 0; i < size; i++) {
     var leadSpaceCount = i < size / 2 ? i : size - i - 1;
